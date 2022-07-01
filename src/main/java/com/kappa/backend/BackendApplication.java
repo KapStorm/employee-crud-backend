@@ -19,7 +19,7 @@ public class BackendApplication {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/*")
-                        .allowedOrigins("https://kappastormblessed.github.io/employee-crud")
+                        .allowedOrigins("*")
                         .allowedHeaders("*")
                         .allowedMethods("*");
             }
