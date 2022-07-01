@@ -20,12 +20,14 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
+    @CrossOrigin(origins = "https://kappastormblessed.github.io/employee-crud")
     @GetMapping("/all")
     public ResponseEntity<List<Employee>> getAllEmployees() {
         List<Employee> employees = employeeService.getAllEmployees();
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "https://kappastormblessed.github.io/employee-crud")
     @GetMapping("/find/{id}")
     public ResponseEntity<Employee> getOneEmployee(@PathVariable("id") Long id) {
         Optional<Employee> employee = employeeService.getOneEmployeeById(id);
@@ -37,18 +39,21 @@ public class EmployeeController {
         return new ResponseEntity<>(employee.get(), HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "https://kappastormblessed.github.io/employee-crud")
     @PostMapping("/add")
     public ResponseEntity<?> addEmployee(@RequestBody Employee employee) {
         employeeService.addEmployee(employee);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
+    @CrossOrigin(origins = "https://kappastormblessed.github.io/employee-crud")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteEmployee(@PathVariable("id") Long id) {
         employeeService.deleteEmloyee(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "https://kappastormblessed.github.io/employee-crud")
     @PatchMapping("/update")
     public ResponseEntity<?> updateEmployee(@RequestBody Employee employee) {
         Optional<Employee> temp = employeeService.getOneEmployeeById(employee.getId());
